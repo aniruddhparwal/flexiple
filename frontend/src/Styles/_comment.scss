@@ -1,0 +1,52 @@
+.individualComment{
+  display: flex;
+  gap: 15px;
+  margin-bottom: 28px;
+  margin-top: 5px;
+  .individualComment__right{
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    .individualComment__right__top{
+      display: flex;
+      min-width: 300px;
+      border: 1px solid #e5dede;
+
+      padding: 10px;
+      width: 100%;
+      flex-grow: 1;
+      justify-content: space-between;
+      flex-direction: column;
+      p{
+        color: grey;
+      }
+      .individualComment__right__top__left{
+        display: flex;
+        justify-content: space-between;
+        span:nth-child(1){
+          font-size: large;
+        }
+
+      }
+    }
+    .individualComment__right__bottom{
+      height: 30px;
+      display: flex;
+      align-items: center;
+      gap:5px;
+      margin-bottom: 5px;
+    }
+    .IndividualComments--replies{
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+.newReply{
+  display: flex;
+  gap: 15px;
+  margin-bottom: 28px;
+  margin-top: 28px;
+  margin-left: 20px;
+}

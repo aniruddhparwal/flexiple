@@ -5,6 +5,10 @@ const commentSchema = new mongoose.Schema({
     type: String,
     default: null,
   },
+  profilePicture: {
+    type: String,
+    default: "https://picsum.photos/id/20/20",
+  },
   upvoteCount: {
     type: Number,
     default: 0,

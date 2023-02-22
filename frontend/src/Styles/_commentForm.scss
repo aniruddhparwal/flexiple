@@ -1,0 +1,13 @@
+.commentForm{
+  form{
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    .commentForm__button{
+      margin-top: 5px;
+      display: flex;
+      gap : 10px;
+    }
+  }
+
+}

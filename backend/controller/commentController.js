@@ -2,25 +2,17 @@ const Comment = require("../model/comment");
 const bigPromise = require("../middleware/bigPromise");
 const customError = require("../utils/customeError");
 
-exports.addNewComment = bigPromise(async (req, res, next) => {
-  const { authorName, commentDescription } = req.body;
-  if (!authorName || !commentDescription) {
-    return next(new customError("Required data is missing", 400));
-  }
-
-  const comment = await Comment.create({
-    authorName,
-    commentDescription,
-  });
+exports.getAllComments = bigPromise(async (req, res, next) => {
+  const comments = await Comment.find({});
   res.status(200).json({
     success: true,
-    message: comment,
+    message: comments,
   });
 });
 
-exports.addNestedComment = bigPromise(async (req, res, next) => {
+exports.addNewComment = bigPromise(async (req, res, next) => {
   const { authorName, commentDescription, parentCommentId } = req.body;
-  if (!authorName || !commentDescription || !parentCommentId) {
+  if (!authorName || !commentDescription) {
     return next(new customError("Required data is missing", 400));
   }
 
@@ -29,14 +21,18 @@ exports.addNestedComment = bigPromise(async (req, res, next) => {
     commentDescription,
     parentCommentId,
   });
-  const parentComment = await Comment.findOne({
-    _id: parentCommentId,
-  });
-  if (!parentComment) {
-    return next(new customError("parent comment not found", 400));
+
+  if (parentCommentId) {
+    const parentComment = await Comment.findOne({
+      _id: parentCommentId,
+    });
+    if (!parentComment) {
+      return next(new customError("parent comment not found", 400));
+    }
+    parentComment.hasNestedComment = true;
+    await parentComment.save();
   }
-  parentComment.hasNestedComment = true;
-  await parentComment.save();
+
   res.status(200).json({
     success: true,
     message: comment,
