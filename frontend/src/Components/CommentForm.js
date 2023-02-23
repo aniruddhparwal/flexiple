@@ -18,7 +18,7 @@ const CommentForm = ({
   };
   return (
     <div className="commentForm">
-      <form onSubmit={onSubmit}>
+      {/* <form onSubmit={onSubmit}>
         <TextField
           id="outlined-multiline-static"
           label="Write Your Comment"
@@ -28,6 +28,32 @@ const CommentForm = ({
           onSubmit={onSubmit}
         />
         <div className="commentForm__button">
+          <Button
+            onClick={onSubmit}
+            variant="contained"
+            disabled={isTextareaDisabled}
+          >
+            {submitLabel}
+          </Button>
+          {hasCancelButton && (
+            <Button variant="outlined" onClick={handleCancel} color="error">
+              Cancel
+            </Button>
+          )}
+        </div>
+      </form> */}
+      <form onSubmit={onSubmit}>
+        <div className="commentArea">
+          <input
+            type="text"
+            placeholder="Write your Comment"
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            onSubmit={onSubmit}
+          />
+        </div>
+        <div className="commentForm__button">
+      
           <Button
             onClick={onSubmit}
             variant="contained"

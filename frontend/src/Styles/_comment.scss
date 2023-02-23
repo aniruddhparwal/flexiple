@@ -1,52 +1,72 @@
-.individualComment{
+.individualComment {
   display: flex;
   gap: 15px;
+
   margin-bottom: 28px;
-  margin-top: 5px;
-  .individualComment__right{
+  margin-top: 10px;
+  .MuiIcon-root {
+    color: #faf173;
+  }
+  .individualComment__right {
     display: flex;
     flex-direction: column;
     border-radius: 20px;
-    .individualComment__right__top{
+    .individualComment__right__top {
       display: flex;
       min-width: 300px;
-      border: 1px solid #e5dede;
+      // border: 1px solid #e5dede;
+      background-color: #fff4d2;
+      border-radius: 8px;
+      box-shadow: 0px 0px 149px 58px rgba(227, 223, 253, 0.51);
 
       padding: 10px;
       width: 100%;
       flex-grow: 1;
       justify-content: space-between;
       flex-direction: column;
-      p{
-        color: grey;
+      p {
+        color: #707c97;
+        font-family: "TT Norms", sans-serif;
       }
-      .individualComment__right__top__left{
+      .individualComment__right__top__left {
         display: flex;
         justify-content: space-between;
-        span:nth-child(1){
+        span:nth-child(1) {
           font-size: large;
+          color: #0d1c2e;
+          font-family: "TT Norms", sans-serif;
         }
-
       }
     }
-    .individualComment__right__bottom{
+    .individualComment__right__bottom {
       height: 30px;
       display: flex;
       align-items: center;
-      gap:5px;
+      gap: 5px;
       margin-bottom: 5px;
+      justify-content: space-around;
+      width: 50%;
+      div {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
     }
-    .IndividualComments--replies{
+    .IndividualComments--replies {
       display: flex;
       flex-direction: column;
     }
   }
 }
 
-.newReply{
+.newReply {
   display: flex;
   gap: 15px;
   margin-bottom: 28px;
   margin-top: 28px;
   margin-left: 20px;
+}
+
+.comments-container {
+  margin-top: 30px;
 }
